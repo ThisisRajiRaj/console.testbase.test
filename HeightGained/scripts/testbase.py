@@ -19,8 +19,7 @@ def handle_osupdate_summary(summary) :
     return 0
 
 # check test results in my account. 
-# return 0 if there was a run in the last 24 hours but no failure
-# return 1 if there was no run in the last 24 hours
+# return 0 if there was no failure in the last 24 hours
 # return -1 if was a failure in the last 24 hours
 def check_testbase_results () :
     # Acquire a credential object using CLI-based authentication.
@@ -63,8 +62,8 @@ def check_testbase_results () :
             for suSummary in item.security_updates_test_summary.os_update_test_summaries :            
                 if (handle_osupdate_summary(suSummary)) :
                     return -1
-    if atleastOneRunIn24Hours :
-         return 0
-    return 1
+    if atleastOneRunIn24Hours == False :
+         os.environ["NO_TESTBASE_RUN_IN24Hrs"] = "True"
+    return 0
 
 exit(check_testbase_results())
