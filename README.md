@@ -3,7 +3,8 @@
 ### HeightGained
 The app is a calculator to compute vertical gain based on 
 grade % and horizontal distance traveled. It can do the math
-in metric system or US customary units
+in metric system or US customary units. This app is simply a sample/test 
+app to try out the functionality of Test Base.
 
 #### Usage
 ```
