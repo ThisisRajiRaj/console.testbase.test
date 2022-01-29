@@ -29,6 +29,12 @@ jobs:
     - name: Install azure-testbase
       run: |
        pip install azure-mgmt-testbase
+    - name: Get secret from base64
+      env:
+        AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      run: |
+        echo import certificate from secrets
+        echo $AZURE_TENANT_ID 
        
        
    
