@@ -32,9 +32,14 @@ jobs:
     - name: Get secret from base64
       env:
         AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}        
+        AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        RESOURCE_GROUP_NAME: ${{ secrets.RESOURCE_GROUP_NAME }}
+        TESTBASE_ACCOUNT_NAME: ${{ secrets.TESTBASE_ACCOUNT_NAME }}
       run: |
-        echo tenand id
-        echo 	${{ env.AZURE_TENANT_ID }}
+        echo Running script
+        python ../../HeightGained/scripts/testbase.py
        
        
    
