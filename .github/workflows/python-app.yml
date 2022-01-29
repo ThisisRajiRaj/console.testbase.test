@@ -47,7 +47,6 @@ jobs:
       run: |
         echo Running script
         python ./HeightGained/scripts/testbase.py
-        echo $NO_TESTBASE_RUN_IN24Hrs!
      
        
    
