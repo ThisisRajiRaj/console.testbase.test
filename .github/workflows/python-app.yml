@@ -4,6 +4,7 @@
 name: Check Test Base results
 
 on:
+  push:
   schedule:
      - cron:  '00 6,18 * * *'
      
@@ -34,7 +35,8 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }} 
-    - name: Run test base script
+    - name: Run test base script      
+      id: testbase
       env:
         AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
         AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}        
@@ -45,6 +47,7 @@ jobs:
       run: |
         echo Running script
         python ./HeightGained/scripts/testbase.py
-       
+        echo $NO_TESTBASE_RUN_IN24Hrs!
+     
        
    
