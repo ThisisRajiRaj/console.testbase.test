@@ -39,7 +39,7 @@ jobs:
         TESTBASE_ACCOUNT_NAME: ${{ secrets.TESTBASE_ACCOUNT_NAME }}
       run: |
         echo Running script
-        python /HeightGained/scripts/testbase.py
+        python ./HeightGained/scripts/testbase.py
        
        
    
