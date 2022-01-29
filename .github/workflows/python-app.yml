@@ -34,7 +34,7 @@ jobs:
         AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       run: |
         echo tenand id
-        echo $AZURE_TENANT_ID 
+        echo 	${{ env.AZURE_TENANT_ID }}
        
        
    
