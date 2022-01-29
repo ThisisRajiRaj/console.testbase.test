@@ -8,7 +8,7 @@ in metric system or US customary units
 #### Usage
 ```
     HeightGained.exe gradeinPercent distance useMetricUnits
-    gradeinPercent should be numeric
+    gradeinPercent and distance should be numeric
     useMetricUnits should be 1 for using meters instead of miles and feet
 ```
 
