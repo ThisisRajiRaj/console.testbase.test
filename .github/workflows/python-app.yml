@@ -25,7 +25,7 @@ jobs:
         python -m pip install --upgrade pip
     - name: Install dotenv
       run: |
-        pip install dotenv
+        pip install python-dotenv
     - name: Install azure-identity
       run: |
         pip install azure-identity
