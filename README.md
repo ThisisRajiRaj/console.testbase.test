@@ -23,13 +23,14 @@ There is a Powershell script compress.py that zips us the 4 scripts needed
 for OutOfBoxTest in test base along with the binaries for HeightGained app. The 
 folder structure inside the zip folder that gets created is as follows.
 
-
+```
 +-- scripts
 |   install.ps1
 |   launch.ps1
 |   close.ps1
 |   uninstall.ps1
 |   <everything in the bin folder for the app including the main exe and references>
+```
 
 Since the powershell scripts assume the relative location of the binaries to execute, it is 
 essential to be mindful of the structure inside the zip.
