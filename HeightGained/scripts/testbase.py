@@ -67,4 +67,4 @@ def check_testbase_results () :
          return 0
     return 1
 
-exit(-1)
+exit(check_testbase_results())
