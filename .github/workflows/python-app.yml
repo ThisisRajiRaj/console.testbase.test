@@ -33,7 +33,7 @@ jobs:
       run: |
        pip install azure-mgmt-testbase
     - name: AzureLoginSample      
-    - uses: azure/login@v1
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }} 
     - name: Run test base script
