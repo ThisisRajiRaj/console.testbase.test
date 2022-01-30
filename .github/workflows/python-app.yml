@@ -6,7 +6,7 @@ name: Check Test Base results
 on:
   push:
   schedule:
-     - cron:  '00 6,18 * * *'
+     - cron:  '0 0 * * *'
      
 jobs:
   build:
