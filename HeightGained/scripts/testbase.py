@@ -24,7 +24,7 @@ def handle_osupdate_summary(summary) :
 def check_testbase_results () :
     # Acquire a credential object using CLI-based authentication.
     credential = AzureCliCredential()
-
+    
     # Retrieve needed info from environment variables.
     subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
     resource_group = os.environ["RESOURCE_GROUP_NAME"]
@@ -41,6 +41,8 @@ def check_testbase_results () :
     atleastOneRunIn24Hours = False
     for item in summary : 
 
+        
+        print("Package Id: " + item.application_name + " " +item.execution_status)
         # check if this summary is a run within last 24 hours
         lastrun = item.test_run_time[0:item.test_run_time.rindex(".")]        
         yesterday = datetime.today() - timedelta(days = 1)
@@ -48,7 +50,8 @@ def check_testbase_results () :
             continue
 
         atleastOneRunIn24Hours = True
-        print("Package Id: " + item.application_name)
+        if item.execution_status == ExecutionStatus.FAILED :
+            return -1
         if item.execution_status == ExecutionStatus.COMPLETED or item.execution_status == ExecutionStatus.SUCCEEDED :
             print()
             print("Feature updates")
