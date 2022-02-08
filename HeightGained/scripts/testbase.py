@@ -50,10 +50,12 @@ def check_testbase_results () :
             continue
 
         atleastOneRunIn24Hours = True
+        print("There is at least one run in the last day")
         if item.execution_status == ExecutionStatus.FAILED :
+            print("There was a test failure")
             return -1
+        print("Reviewing test execution status")
         if item.execution_status == ExecutionStatus.COMPLETED or item.execution_status == ExecutionStatus.SUCCEEDED :
-            print()
             print("Feature updates")
             for fuSummary in item.feature_updates_test_summary.os_update_test_summaries :
                 if (handle_osupdate_summary(fuSummary)) :
@@ -66,6 +68,7 @@ def check_testbase_results () :
                 if (handle_osupdate_summary(suSummary)) :
                     return -1
     if atleastOneRunIn24Hours == False :
+        print("No test run in last 24 hours")
          os.environ["NO_TESTBASE_RUN_IN24Hrs"] = "True"
     return 0
 
