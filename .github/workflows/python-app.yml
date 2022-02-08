@@ -6,7 +6,7 @@ name: Check Test Base results
 on:
   push:
   schedule:
-     - cron:  '00 6,18 * * *'
+     - cron:  '0 0 * * *'
      
 jobs:
   build:
@@ -47,7 +47,6 @@ jobs:
       run: |
         echo Running script
         python ./HeightGained/scripts/testbase.py
-        echo $NO_TESTBASE_RUN_IN24Hrs!
      
        
    
