@@ -43,6 +43,9 @@ def check_testbase_results () :
 
         
         print("Package Id: " + item.application_name + " " +item.execution_status)
+        if (item.execution_status is None or item.test_run_time is None) :
+            print("No execution status or run time")
+            return -1
         # check if this summary is a run within last 24 hours
         lastrun = item.test_run_time[0:item.test_run_time.rindex(".")]        
         yesterday = datetime.today() - timedelta(days = 1)
@@ -69,7 +72,7 @@ def check_testbase_results () :
                     return -1
     if atleastOneRunIn24Hours == False :
         print("No test run in last 24 hours")
-         os.environ["NO_TESTBASE_RUN_IN24Hrs"] = "True"
+        os.environ["NO_TESTBASE_RUN_IN24Hrs"] = "True"
     return 0
 
 exit(check_testbase_results())
